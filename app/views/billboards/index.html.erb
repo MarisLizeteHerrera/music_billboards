@@ -1,8 +1,11 @@
 <h1>Billboards Top 100</h1>
-<%= link_to 'Create a new billboard', new_billboard_path %>
+<h2>All Genres</h2>
+
 <ul>
   <% @billboards.each do |billboard| %>
     <li><%= link_to billboard.name, billboard %></li>
   <% end %>
 </ul>
-<p>Find me in app/views/billboards/index.html.erb</p>
+<%= link_to 'Create a new billboard', new_billboard_path %>
+<br />
+<%= link_to 'All  Artists', artists_path %>
