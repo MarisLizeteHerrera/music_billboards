@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
   # before_action :set_billboard, except: [:index, :new, :create]
-  before_action :set_artist, except: [:index, :new, :create]
+  before_action :set_artist
+  # , only: [:index, :new, :create]
   before_action :set_song, except: [:index, :new, :create]
 
   def index
@@ -12,7 +13,7 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = @artist.song.new
+    @song = @artist.songs.new
     render partial: "form"
   end
 
@@ -21,7 +22,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = @artist.song.new(song_params)
+    @song = @artist.songs.new(song_params)
 
       if @song.save
         redirect_to @artist
